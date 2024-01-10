@@ -1,4 +1,4 @@
-<!-- Display the parking report data, adjust as needed -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
