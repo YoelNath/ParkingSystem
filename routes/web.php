@@ -26,6 +26,9 @@ Route::get('/exit', function () {
     return view('exit');
 })->name('exit');
 
+Route::get('/exit-success', function () {
+    return view('exit-success');
+})->name('exit-success');
 
 Route::get('/admin', function () {
     return view('admin.control');
@@ -33,6 +36,6 @@ Route::get('/admin', function () {
 
 Route::post('/parkir', [ParkirController::class, 'park']);
 Route::post('/exits', [ParkirController::class, 'exit']);
-Route::get('/admins', [AdminController::class,'generateReport']);
+Route::get('/admins', [AdminController::class, 'generateReport']);
 Route::get('/admin/export-report', [AdminController::class, 'exportReport']);
 

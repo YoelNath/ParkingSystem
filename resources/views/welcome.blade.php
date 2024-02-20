@@ -26,12 +26,10 @@
             
             <button type="submit" class="btn btn-primary">Submit</button>
         </form> 
-        @isset($uniqcode)
-        <div class="alert alert-success" role="alert">
-            Your unique code: {{ $uniqcode }}
-        </div>
-
-        @endisset
+        
+        @if(session('uniqcode'))
+        <p>Unique Code: {{ session('uniqcode') }}</p>
+    @endif
         @if ($errors->any())
         <div class="alert alert-danger" role="alert">
             {{ $errors->first() }}
