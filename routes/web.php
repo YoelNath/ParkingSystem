@@ -3,7 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ParkirController;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,16 +30,27 @@ Route::get('/exit-success', function () {
     return view('exit-success');
 })->name('exit-success');
 
-Route::get('/admin', function () {
-    return view('admin.control');
-})->name('admin');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.control');
+    })->name('admin');
+});
 
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
 
 Route::post('/parkir', [ParkirController::class, 'park']);
 Route::post('/exits', [ParkirController::class, 'exit']);
 Route::get('/admins', [AdminController::class, 'generateReport']);
 Route::get('/admin/export-report', [AdminController::class, 'exportReport']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

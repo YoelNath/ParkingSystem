@@ -8,6 +8,8 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
+
+                    
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -15,9 +17,16 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <form action="{{ route('logout') }}" method="POST" class="mt-3">
+                        @csrf
+                        <button type="submit" class="btn btn-secondary">Logout</button>
                 </div>
+
+                </form>
+                
             </div>
         </div>
+        
     </div>
 </div>
 @endsection

@@ -15,9 +15,27 @@ class ParkingExport implements FromCollection
 {
     use Exportable;
 
+
+    protected $start;
+    protected $end;
+
+    public function __construct($start, $end)
+    {
+        $this->start = $start;
+        $this->end = $end;
+    }
     public function collection()
     {
-        $parkingRecords = parkir::all(['id', 'code', 'police_number', 'entry_time', 'exit_time', 'parking_fee']);
+        $parkingRecords = parkir::where(function($query) {
+            $query->whereDate('entry_time', '>=', $this->start)
+                  ->whereDate('entry_time', '<=', $this->end);
+        })
+        ->orWhere(function($query) {
+            $query->whereDate('exit_time', '>=', $this->start)
+                  ->whereDate('exit_time', '<=', $this->end);
+        })
+        ->get();
+
 
 
         $exportData = $parkingRecords->map(function ($record) {

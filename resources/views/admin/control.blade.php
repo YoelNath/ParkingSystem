@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parking Report</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 </head>
 @include('layouts.app')
 <body>
@@ -25,7 +25,7 @@
             <input type="date" name="end_date" class="form-control" required>
         </div>
 
-        <button type="submit" class="btn btn-success">Generate Report</button>
+        <button type="submit" class="btn btn-success mt-3">Generate Report</button>
     </form> 
 
 </div>

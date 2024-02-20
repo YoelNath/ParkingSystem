@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="{{ asset('resources\css\app.css') }}" rel="stylesheet" type="text/css" >
-  @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+  @vite(['resources/sass/app.scss', 'resources/js/app.js'])
   <title>@yield('title')</title>
 </head>
 <body>
@@ -26,6 +26,12 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
+     
+          
+  
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
      
           
   
