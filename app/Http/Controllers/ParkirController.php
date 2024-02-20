@@ -12,7 +12,7 @@ class ParkirController extends Controller
    public function park(Request $request)
    {
       $request->validate([
-         "police_num" => "required|string",
+         "police_num" =>  ['required', 'regex:/^[A-Za-z]\d+[A-Za-z]/'],
       ]);
       $parkres = parkir::wherenull('exit_time')
          ->where('police_number', $request->police_num)
@@ -25,7 +25,7 @@ class ParkirController extends Controller
             'police_number' => $request->police_num,
             'entry_time' => now()
          ]);
-
+         session()->put('uniq',$uniqcode);
          return Redirect::back()->with('uniqcode', $uniqcode);
 
 
@@ -45,7 +45,7 @@ class ParkirController extends Controller
          ->whereNull('exit_time')
          ->first();
 
-      if ($parkingRecord) {
+      if ($parkingRecord && is_null($parkingRecord->exit_time)) {
          $entryTime = $parkingRecord->entry_time;
          $exitTime = now();
          $hoursParked = $entryTime->diffInHours($exitTime);
@@ -56,7 +56,7 @@ class ParkirController extends Controller
             'exit_time' => $exitTime,
             'parking_fee' => $parkingFee,
          ]);
-
+         session()->forget('uniq');
          return Redirect::route('exit-success')->with('parkingRecord', $parkingRecord);
       } else {
          return Redirect::route('exit')->withErrors(['error' => 'Invalid unique code.']);

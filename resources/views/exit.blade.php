@@ -16,7 +16,7 @@
     <body class="antialiased">
         @include('layouts.app')
 
-            <div class="container-xxl">
+            <div class="container">
                 <h1 class="my-4">Parking Exit</h1>
                 <form  action="{{url('/exits')}}" method="post" >
                     @csrf

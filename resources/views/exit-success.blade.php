@@ -7,14 +7,15 @@
     <title>Parking System</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body class="container mt-5">
+@include('layouts.app')    
+<body >
+ <div class="container"> 
     <h1>Parking Exit</h1>
 
-    <p>Police Number: {{ $parkingRecord->police_number }}</p>
-    <p>Entry Time: {{ $parkingRecord->entry_time }}</p>
-    <p>Exit Time: {{ $parkingRecord->exit_time }}</p>
-    <p>Parking Fee: Rp {{ $parkingRecord->parking_fee }}</p>
-
-  
+    <p>Police Number: {{ session('parkingRecord')->police_number}}</p>
+    <p>Entry Time: {{ session('parkingRecord')->entry_time}}</p>
+    <p>Exit Time: {{ session('parkingRecord')->exit_time }}</p>
+    <p>Parking Fee: {{ session('parkingRecord')->parking_fee}}</p>
+</div>
 </body>
 </html>

@@ -34,6 +34,10 @@ Route::get('/admin', function () {
     return view('admin.control');
 })->name('admin');
 
+Route::get('/login', function () {
+    return view('login');
+});
+
 Route::post('/parkir', [ParkirController::class, 'park']);
 Route::post('/exits', [ParkirController::class, 'exit']);
 Route::get('/admins', [AdminController::class, 'generateReport']);

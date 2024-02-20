@@ -24,13 +24,28 @@
           <li class="nav-item">
             <a class="nav-link" href="/exit">Exit now</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+     
+          
+  
+          </li>
             <li class="nav-item">
               <a class="nav-link" href="/admin">Admin</a>
        
             
     
             </li>
+            @if (session('uniq'))
+            <li class="nav-item">
+              <a class="nav-link">Uniqcode: {{ session('uniq') }}</a> 
+       
+            
+    
+            </li>
+            @endif
 
+          
          
         </ul>
 

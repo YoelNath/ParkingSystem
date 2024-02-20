@@ -11,7 +11,7 @@
 <body>
     
 
-<div class="container-xxl">
+<div class="container">
 
     <h1 class="my-4">Parking Report</h1>
     <form action="{{ url('/admins') }}" method="get" class="mb-3">

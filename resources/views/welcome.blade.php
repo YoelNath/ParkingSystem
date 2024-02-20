@@ -14,7 +14,7 @@
     <body>
         @include('layouts.app')
 
-            <div class="container-xxl">
+            <div class="container">
                 <h1 class="my-4">Parking Entrance    </h1>
         <form action="{{url('/parkir')}}" method="post" >
             @csrf
