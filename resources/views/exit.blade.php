@@ -17,7 +17,7 @@
         @include('layouts.app')
 
             <div class="container">
-                <h1 class="my-4">Parking Exit</h1>
+                <h1 class="my-4 text-center border-bottom border-primary">Parking Exit</h1>
                 <form  action="{{url('/exits')}}" method="post" >
                     @csrf
                     <div class="form-group mb-3 ">

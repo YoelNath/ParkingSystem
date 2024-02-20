@@ -18,25 +18,25 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item border-bottom border-primary mx-3 " >
             <a class="nav-link active" aria-current="page" href="/">Park</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item border-bottom border-primary mx-3 ">
             <a class="nav-link" href="/exit">Exit now</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item border-bottom border-primary mx-3">
             <a class="nav-link" href="/login">Login</a>
      
           
   
           </li>
-          <li class="nav-item">
+          <li class="nav-item border-bottom border-primary mx-3">
             <a class="nav-link" href="/register">Register</a>
      
           
   
           </li>
-            <li class="nav-item">
+            <li class="nav-item border-bottom border-primary mx-3">
               <a class="nav-link" href="/admin">Admin</a>
        
             

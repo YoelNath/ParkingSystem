@@ -13,7 +13,7 @@
 
 <div class="container">
 
-    <h1 class="my-4">Parking Report</h1>
+    <h1 class="my-4 text-center border-bottom border-primary">Parking Report</h1>
     <form action="{{ url('/admins') }}" method="get" class="mb-3">
         <div class="form-group">
             <label for="start_date">Start Date:</label>

@@ -9,13 +9,13 @@
 </head>
 @include('layouts.app')    
 <body >
- <div class="container"> 
-    <h1>Parking Exit</h1>
+ <div class="container text-center"> 
+    <h1 class="text-center border-bottom border-primary">Parking Exit</h1>
 
-    <p>Police Number: {{ session('parkingRecord')->police_number}}</p>
-    <p>Entry Time: {{ session('parkingRecord')->entry_time}}</p>
-    <p>Exit Time: {{ session('parkingRecord')->exit_time }}</p>
-    <p>Parking Fee: {{ session('parkingRecord')->parking_fee}}</p>
+    <p class="border border-primary">Police Number: {{ session('parkingRecord')->police_number}}</p>
+    <p class="border border-primary">Entry Time: {{ session('parkingRecord')->entry_time}}</p>
+    <p class="border border-primary">Exit Time: {{ session('parkingRecord')->exit_time }}</p>
+    <p class="border border-primary">Parking Fee: {{ session('parkingRecord')->parking_fee}}</p>
 </div>
 </body>
 </html>
