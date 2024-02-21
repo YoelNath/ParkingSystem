@@ -26,19 +26,21 @@ class ParkingExport implements FromCollection
     }
     public function collection()
     {
-        if()
-        $parkingRecords = parkir::where(function($query) {
-            $query->whereDate('entry_time', '>=', $this->start)
-                  ->whereDate('entry_time', '<=', $this->end);
-        })
-        ->orWhere(function($query) {
-            $query->whereDate('exit_time', '>=', $this->start)
-                  ->whereDate('exit_time', '<=', $this->end);
-        })
-        ->get();
-
-
-
+        $query = parkir::query();
+    
+        if ($this->start && $this->end) {
+            $query->where(function($query) {
+                $query->whereDate('entry_time', '>=', $this->start)
+                      ->whereDate('entry_time', '<=', $this->end);
+            })
+            ->orWhere(function($query) {
+                $query->whereDate('exit_time', '>=', $this->start)
+                      ->whereDate('exit_time', '<=', $this->end);
+            });
+        }
+    
+        $parkingRecords = $query->get();
+    
         $exportData = $parkingRecords->map(function ($record) {
             return [
                 'ID' => $record->id,
@@ -47,12 +49,9 @@ class ParkingExport implements FromCollection
                 'Entry Time' => $record->entry_time,
                 'Exit Time' => $record->exit_time,
                 'Parking Fee' => $record->parking_fee,
-
-
             ];
         });
-
-
+    
         $headers = [
             'ID',
             'Code',
@@ -60,9 +59,8 @@ class ParkingExport implements FromCollection
             'Entry Time',
             'Exit Time',
             'Parking Fee'
-
         ];
-
+    
         return collect([$headers])->merge($exportData);
     }
 }
