@@ -18,7 +18,7 @@
             <div class="container-xxl">
                 <table class="table table-bordered">
                     <thead>
-                        <tr>
+                        <tr>    
                             <th>Police Number</th>
                             <th>Entry Time</th>
                             <th>Exit Time</th>

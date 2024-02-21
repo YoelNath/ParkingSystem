@@ -7,6 +7,7 @@ use App\Exports\ParkingExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -29,9 +30,15 @@ class AdminController extends Controller
                 ->whereDate('exit_time', '<=', $end);
         })
         ->get();
-            return view('admin.result', ['parkingRecord' => $parkingRecord]   );
+        return view('admin.control', ['parkingRecord' => $parkingRecord]   );
     }
-    
+
+    public function generateAll() {
+
+
+        $parkingRecord = parkir::all();
+            return view('admin.control', ['parkingRecord' => $parkingRecord]   );
+    }
     public function exportReport()
     {
         $start = Session::get('start_date');

@@ -14,8 +14,8 @@
     <body>
         @include('layouts.app')
 
-            <div class="container">
-                <h1 class="my-4 text-center border-bottom border-primary">Parking Entrance    </h1>
+            <div class="container con-test border border-primary py-4">
+                <h1 class=" pb-4 text-center border-bottom border-primary">Parking Entrance    </h1>
         <form action="{{url('/parkir')}}" method="post" >
             @csrf
             <div class="form-group mb-3 ">
@@ -26,10 +26,7 @@
             
             <button type="submit" class="btn btn-primary">Submit</button>
         </form> 
-        
-        @if(session('uniqcode'))
-        <p>Unique Code: {{ session('uniqcode') }}</p>
-    @endif
+
         @if ($errors->any())
         <div class="alert alert-danger" role="alert">
             {{ $errors->first() }}

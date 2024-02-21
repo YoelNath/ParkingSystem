@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="{{ asset('resources\css\app.css') }}" rel="stylesheet" type="text/css" >
+  <link rel="stylesheet" href="./park/app.css">
   @vite(['resources/sass/app.scss', 'resources/js/app.js'])
   <title>@yield('title')</title>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
+  <nav class="navbar nav-test navbar-expand-lg mb-5 border-bottom border-primary px-5 ">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,12 +36,16 @@
           
   
           </li>
+          @if (auth()->check())
+
             <li class="nav-item border-bottom border-primary mx-3">
               <a class="nav-link" href="/admin">Admin</a>
        
             
     
             </li>
+                        
+          @endif
             @if (session('uniq'))
             <li class="nav-item">
               <a class="nav-link">Uniqcode: {{ session('uniq') }}</a> 

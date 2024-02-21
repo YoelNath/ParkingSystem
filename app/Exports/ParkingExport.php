@@ -26,6 +26,7 @@ class ParkingExport implements FromCollection
     }
     public function collection()
     {
+        if()
         $parkingRecords = parkir::where(function($query) {
             $query->whereDate('entry_time', '>=', $this->start)
                   ->whereDate('entry_time', '<=', $this->end);

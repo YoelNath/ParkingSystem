@@ -31,9 +31,10 @@ Route::get('/exit-success', function () {
 })->name('exit-success');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin', function () {
-        return view('admin.control');
-    })->name('admin');
+    Route::get('/admin', [AdminController::class, 'generateAll']);
+    Route::get('/admin/export-report', [AdminController::class, 'exportReport']);
+
+Route::get('/admins', [AdminController::class, 'generateReport']);
 });
 
 Route::get('/login', function () {
@@ -47,8 +48,8 @@ Route::post('/logout', function () {
 
 Route::post('/parkir', [ParkirController::class, 'park']);
 Route::post('/exits', [ParkirController::class, 'exit']);
-Route::get('/admins', [AdminController::class, 'generateReport']);
-Route::get('/admin/export-report', [AdminController::class, 'exportReport']);
+
+
 
 
 Auth::routes();
