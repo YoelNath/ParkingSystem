@@ -15,25 +15,42 @@
     </head>
     <body class="antialiased">
         @include('layouts.app')
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 class="text-center mt-2">Parking Exit</h1></div>
+        
+                            <div class="container con-test border border-light py-4">
 
-            <div class="container border border-primary py-4">
-                <h1 class=" pb-4 text-center border-bottom border-primary">Parking Exit</h1>
-                <form  action="{{url('/exits')}}" method="post" >
-                    @csrf
-                    <div class="form-group mb-3 ">
-                        <label for="unique_code" class="mb-1">Enter Unique Code to exit</label>
-                        <input name="unique_code" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Unique Code">
+                                <form  action="{{url('/exits')}}" method="post" >
+                                    @csrf
+                                    <div class="form-group mb-3 ">
+                                        <label for="unique_code" class="mb-1">Enter Unique Code to exit</label>
+                                        <input name="unique_code" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Unique Code">
+                                        
+                                      </div>
+                                      
+                                      <button type="submit" class="btn btn-secondary">Exit</button>
+                                </form>
+                
+                                @if ($errors->any())
+                                <div class="alert alert-danger mt-2" role="alert">
+                                    {{ $errors->first() }}
+                                </div>
+                            @endif
+                    
                         
-                      </div>
-                      
-                      <button type="submit" class="btn btn-secondary">Exit</button>
-                </form>
-            
-                @if ($errors->any())
-                <div class="alert alert-danger" role="alert">
-                    {{ $errors->first() }}
+                    </div>
                 </div>
-            @endif
-    </div>
+                
+            </div>
+        </div>
+     
+   
+            
+
+   
     </body>
 </html>

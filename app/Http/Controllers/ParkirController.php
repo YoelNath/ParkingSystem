@@ -12,7 +12,7 @@ class ParkirController extends Controller
    public function park(Request $request)
    {
       $request->validate([
-         "police_num" =>  ['required', 'regex:/^[A-Za-z]\d+[A-Za-z]/'],
+         "police_num" => ['required', 'regex:/^[A-Z]+\d+[A-Z]/'],
       ]);
       $parkres = parkir::wherenull('exit_time')
          ->where('police_number', $request->police_num)
@@ -25,7 +25,8 @@ class ParkirController extends Controller
             'police_number' => $request->police_num,
             'entry_time' => now()
          ]);
-         session()->put('uniq',$uniqcode);
+         session()->put('uniq', $uniqcode);
+
          return Redirect::back()->with('uniqcode', $uniqcode);
 
 

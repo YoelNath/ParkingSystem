@@ -13,25 +13,51 @@
     </head>
     <body>
         @include('layouts.app')
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 class="text-center mt-2">Parking Entrance</h1></div>
+        
+                            <div class="container con-test border border-light py-4">
 
-            <div class="container con-test border border-primary py-4">
-                <h1 class=" pb-4 text-center border-bottom border-primary">Parking Entrance    </h1>
-        <form action="{{url('/parkir')}}" method="post" >
-            @csrf
-            <div class="form-group mb-3 ">
-              <label for="police_num" class="mb-1">Enter Police Number</label>
-              <input name="police_num" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Police Number">
-              
+                        <form action="{{url('/parkir')}}" method="post" >
+                            @csrf
+                            <div class="form-group mb-3 ">
+                              <label for="police_num" class="mb-1">Enter Police Number</label>
+                              <input name="police_num" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Police Number">
+                              
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" >Submit</button>
+                        </form>
+                
+                   
+                        @if ($errors->any())
+                        <div class="alert alert-danger mt-2" role="alert">
+                            {{ $errors->first() }}
+                        </div>
+                
+                        @elseif(session('uniq'))
+                        <div class="alert alert-info mt-2" role="alert">
+                            Unique ID Generated
+                        </div>
+                    @endif
+                
+                
+    
+           
+                
+                    
+                        
+                    </div>
+                </div>
+                
             </div>
-            
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form> 
-
-        @if ($errors->any())
-        <div class="alert alert-danger" role="alert">
-            {{ $errors->first() }}
         </div>
-    @endif
+     
+
 {{--     
     <form class="m-5" action="{{url('/exit')}}" method="post" >
         @csrf

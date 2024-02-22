@@ -12,32 +12,34 @@ use Illuminate\Support\Facades\Redirect;
 class AdminController extends Controller
 {
 
-    public function generateReport(Request $request) {
+    public function generateReport(Request $request)
+    {
         $request->validate([
             'start_date' => 'required|date',
             'end_date' => 'required|date',
         ]);
         $start = $request->start_date;
         $end = $request->end_date;
-        Session::put('start_date', $start);
-        Session::put('end_date', $end);
-        $parkingRecord = parkir::where(function($query) use ($start, $end) {
+        Session::flash('start_date', $start);
+        Session::flash('end_date', $end);
+        $parkingRecord = parkir::where(function ($query) use ($start, $end) {
             $query->whereDate('entry_time', '>=', $start)
                 ->whereDate('entry_time', '<=', $end);
         })
-        ->orWhere(function($query) use ($start, $end) {
-            $query->whereDate('exit_time', '>=', $start)
-                ->whereDate('exit_time', '<=', $end);
-        })
-        ->get();
-        return view('admin.control', ['parkingRecord' => $parkingRecord]   );
+            ->orWhere(function ($query) use ($start, $end) {
+                $query->whereDate('exit_time', '>=', $start)
+                    ->whereDate('exit_time', '<=', $end);
+            })
+            ->get();
+        return view('admin.control', ['parkingRecord' => $parkingRecord]);
     }
 
-    public function generateAll() {
+    public function generateAll()
+    {
 
 
         $parkingRecord = parkir::all();
-            return view('admin.control', ['parkingRecord' => $parkingRecord]   );
+        return view('admin.control', ['parkingRecord' => $parkingRecord]);
     }
     public function exportReport()
     {

@@ -1,12 +1,12 @@
+*{
+ 
+}
 body{
     background-color: #F5E8DD;
 }
 
 .nav-test{
-    background-color:rgb(247, 247, 247);
-
+    background-color:#f1f3f5;
+    border-bottom: 1pt solid #ccced0;
 }
 
-.con-test{
-    
-}

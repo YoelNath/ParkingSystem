@@ -4,9 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card py-4">
-                <h1 class=" pb-4 text-center border-bottom border-primary">Register   </h1>
-
+            <div class="card ">
+                <div class="card-header">
+                    <h1 class="text-center mt-2">Register</h1></div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
